@@ -33,7 +33,7 @@ export class MultiPlayerGameComponent implements OnInit {
   showConversation: Boolean = false;
   ws: any;
   counter = 0;
-
+  isOn: boolean = false;
   questions: ResponseData;
   userName: string;
   questionId: string;
