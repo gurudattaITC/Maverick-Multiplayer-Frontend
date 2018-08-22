@@ -1,0 +1,129 @@
+<h5 style="text-align: center; color:darkgreen" >
+  Multi Player FFF Quiz !</h5>
+<hr>
+<div id="main-content" class="container">
+  <div class="row" style="background-color: #9db69f"  >
+    <div class="col s12 m7">
+      <form class="form-inline">
+        <div class="form-group">
+          <!-- style="display: none" -->
+          <!-- <button style="display: none" id="connect" class="btn btn-default" type="button" [disabled]="disabled" (click)="connect()">Connect</button> -->
+          <!-- <button id="disconnect" class="btn btn-default" type="button" [disabled]="!disabled" (click)="disconnect()">Disconnect</button> -->
+
+          <button id="disconnect" class="btn-floating btn-small waves-effect waves-light red z-depth-5 ff" (click)="disconnect()">
+            <i class="material-icons">close</i>
+          </button>
+          <div>
+            <!-- <strong  style="float:left;">{{multiPlayerService.displayTimer()}}</strong> -->
+            <h5 style="float:left;"><i>Remaining Time : {{timeElapsed()}}</i></h5>
+            <!-- <p *ngIf = "countDown === 0">
+              sendAnswerToAll("");
+            </p> -->
+          </div>
+
+          <!-- <button id="send" class="btn btn-default" type="button" (click)="sendResponse()">Start Game</button> -->
+        </div>
+        <div class="row" style="background-color: khaki" *ngIf="!isOn">
+          <div class="col m12">
+            <div class="card">
+              <div class="card-content">
+                <strong>
+                  <i>Game Description :</i>
+                </strong>
+                <p>Geography is often defined in terms of the two branches of human geography and physical geography.
+                  Human geography deals with the study of people and their communities, cultures,
+                  economies and interactions with the environment by studying their relations with and across space and place.</p>
+                <strong>
+                  <i>Game Rules :</i>
+                </strong>
+                <p>1. Do not resize the browser during test<br>2. Never click back button on browser<br> 3. Avoid using scroll button on your mouse if present<br> 4. Click SUBMIT button to submit your exam.".</p>
+                <br>
+                <button id="send" class="waves-effect waves-light btn" type="button" (click)="isOn= true" (click)="connect()" (click)="sendResponse()">continue</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div *ngIf="isOn">
+          <div class="col m12">
+            <div class="card option">
+              <div class="card-content">
+                <strong>Question : {{questionId}}</strong>
+                <strong>{{questionStamp}} </strong>
+              </div>
+            </div>
+          </div>
+          <div class="col m12">
+            <div class="card option">
+              <a (click)='sendAnswerToAll(op1)'>
+                <div class="card-action">
+                  <strong>1) : {{op1}}</strong>
+                </div>
+              </a>
+            </div>
+          </div>
+          <div class="col m12">
+            <div class="card option">
+              <a (click)='sendAnswerToAll(op2)'>
+                <div class="card-action">
+                  <strong>2) : {{op2}}</strong>
+                </div>
+              </a>
+            </div>
+          </div>
+          <div class="col m12">
+            <div class="card option">
+              <a (click)='sendAnswerToAll(op3)'>
+                <div class="card-action">
+                  <strong>3) : {{op3}}</strong>
+                </div>
+              </a>
+            </div>
+          </div>
+          <div class="col m12">
+            <div class="card option">
+              <a (click)='sendAnswerToAll(op4)'>
+                <div class="card-action">
+                  <strong>4) : {{op4}}</strong>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+    <h5 style="text-align: center; color:white"><i>Players Info </i></h5>
+    <div class="col s12 m5">
+      <hr>
+      <div class="row">
+        <div class="col m12">
+          <div class="card card1">
+            <div class="card-content">
+              <div class="col s4 l4">
+                <img src="../../assets/user1.png" alt="" class="circle responsive-img">
+              </div>
+              <div>
+                 
+                <h6>Player ID : {{user1}}</h6>
+                <h6>Score :{{score[0]}} </h6>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col m12">
+          <div class="card card1">
+            <div class="card-content">
+              <div class="col s4 l4">
+                <img src="../../assets/user1.png" alt="" class="circle responsive-img">
+              </div>
+              <div>
+                
+                <h6>Player ID : {{user1}}</h6>
+                <h6>Score : {{score[1]}} </h6>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
